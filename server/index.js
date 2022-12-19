@@ -1,15 +1,16 @@
 require('dotenv').config()
 const express = require("express");
+const cors = require('cors');
 const mongoose = require("mongoose");
-const cors = require("cors");
+
+
 const app = express();
 
 
+app.use(cors('*:*'))
 
 app.use(express.json());
 
-
-app.use(cors({ origin: "*" }));
 
 mongoose
   .connect(
@@ -29,6 +30,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", require("./routes/auth.js"));
 app.use("/api/siswa", require("./routes/siswa.js"));
+app.use("/api/admin", require("./routes/admin.js"));
+app.use("/api/kelas", require("./routes/kelas.js"));
+app.use("/api/transaksi", require("./routes/transaksi.js"))
 
 
 

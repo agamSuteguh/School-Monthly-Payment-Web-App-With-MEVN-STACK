@@ -56,7 +56,7 @@ const authModule = {
         console.log(error.message);
       }
     },
-    async login({ commit }, payload) {
+    async login({ commit }, payload) { 
       commit("setLoading", true, { root: true });
       try {
         const res = await api.post("/auth/login", payload);
@@ -70,7 +70,7 @@ const authModule = {
         } else {
           Cookies.set("account", JSON.stringify(res.data.Admin));
           Cookies.set("token", res.data.token);
-
+         console.log(res.data.Admin)
           commit("setLoading", false, { root: true });
           commit(
             "setToast",

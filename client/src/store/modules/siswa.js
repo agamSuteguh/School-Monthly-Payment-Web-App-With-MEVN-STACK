@@ -1,21 +1,71 @@
 import api from "@/helpers/api";
-import Cookies from "js-cookie";
+
 
 const siswaModule = {
   namespaced: true,
-  state: {
-    account: Cookies.get("account") ? Cookies.get("account") : {},
+  state: () => ({
+    siswa: [] ? [] : { } ,
+    kelas:[]
 
-
-  },
-  getters: {},
+  }),
   mutations: {
-    setAccount(state, payload) {
-      state.account = payload;
+    SET_SISWA(state, siswa) {
+      state.siswa = siswa;
     },
-   
+    SET_KELAS(state, kelas) {
+      state.kelas = kelas;
+    },
+  
+
   },
   actions: {
+     //ambil data dari api
+     async fetchKelas({ commit }) {
+      try {
+        const res = await api.get(
+          "kelas/getKelas"
+        );
+
+        const kelas = res.data.kelas;
+
+        commit("SET_KELAS", kelas);
+      } catch (error) {
+        alert(error);
+        console.log(error);
+      }
+    },
+
+    //ambil data dari api
+    async fetchSiswa({ commit }) {
+      try {
+        const res = await api.get(
+          "siswa/getSiswa"
+        );
+
+        const siswa = res.data.siswa;
+
+        commit("SET_SISWA", siswa);
+      } catch (error) {
+        alert(error);
+        console.log(error);
+      }
+    },
+
+    async fetchSiswaById({ commit }, payload) {
+      try {
+        const res = await api.get(`siswa/nis/${payload}`);
+   
+
+        const siswaOne = res.data.siswa;
+
+        commit("SET_SISWAO", siswaOne);
+      } catch (error) {
+        alert(error);
+        console.log(error);
+      }
+    },
+   
+
     //tambah murid
     async addSiswa({ commit }, payload) {
       commit("setLoading", true, { root: true });
@@ -30,8 +80,8 @@ const siswaModule = {
             { root: true }
           );
         } else {
-          Cookies.set("account", JSON.stringify(res.data.siswa));
-        
+         
+
           console.log(res.data);
 
           commit("setLoading", false, { root: true });
@@ -42,7 +92,7 @@ const siswaModule = {
           );
 
           setTimeout(function () {
-            window.location.href = "/siswa";
+            window.location.href = "/explore/siswa";
           }, 2000);
         }
       } catch (error) {
@@ -52,7 +102,7 @@ const siswaModule = {
           { show: "true", type: "error", msg: error.message },
           { root: true }
         );
-        console.log(error.message);
+     
       }
     },
 

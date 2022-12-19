@@ -9,14 +9,28 @@ const siswaSchema = new Schema(
       unique: true,
     },
     nis: {
-      type: String,
+      type: Number,
       required: true,
+      unique:true
+
     },
-    kelas: [{ type: Schema.Types.ObjectId, ref: 'Kelas'}],
+    kelas:{
+      type: String,
+      required: true
+  },
+  jurusan:{
+    type: String,
+    required: true
+},
     gender:{
         type: String,
         required: true
+    },
+    tagihanSpp:{
+      type:Number,
+      default:0,
     }
+    
   },
   { timestamps: true }
 );

@@ -20,21 +20,21 @@
             >
           </li>
           <li>
-            <a
-              href="/"
+            <router-link
+            :to="{ name: 'Transaksi'}"
               aria-label="Our product"
               title="Our product"
               class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Transaksi</a
+              >Transaksi</router-link
             >
           </li>
           <li>
-            <a
-              href="/"
+            <router-link
+            :to="{ name: 'TransaksiAdd'}"
               aria-label="Product pricing"
               title="Product pricing"
               class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Pembayaran</a
+              >Bayar SPP</router-link
             >
           </li>
         </ul>
@@ -61,26 +61,26 @@
           </svg>
           <span
             class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase"
-            >Agam Spp</span
+            >BM3 Spp</span
           >
         </a>
         <ul class="flex items-center hidden space-x-8 lg:flex">
           <li>
-            <a
-              href="explore/about"
-              aria-label="About us"
-              title="About us"
+            <router-link 
+            :to="{ name: 'Siswa'}"
+             style="cursor: pointer;"
+              title="Sign in"
               class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Siswa</a
+              >Siswa</router-link 
             >
           </li>
           <li>
-            <a
-              href="/admin"
+            <router-link 
+            :to="{ name: 'Admin'}"
               aria-label="Sign in"
               title="Sign in"
               class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Admin</a
+              >Admin</router-link 
             >
           </li>
           <li>

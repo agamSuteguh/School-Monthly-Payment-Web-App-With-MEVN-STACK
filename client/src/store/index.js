@@ -1,6 +1,9 @@
 import { createStore } from "vuex";
 import authModule from "./modules/auth";
-import siswahModule from "./modules/siswa";
+import siswaModule from "./modules/siswa";
+import adminModule from "./modules/admin"
+import transaksiModule from "./modules/transaksi";
+import kelasModule from "./modules/kelas"
 
 export default createStore({
   state: {
@@ -23,6 +26,9 @@ export default createStore({
   actions: {},
   modules: {
     auth: authModule,
-    siswa: siswahModule,
+    siswa: siswaModule,
+    admin: adminModule,
+    transaksi: transaksiModule,
+    kelas:kelasModule
   },
 });

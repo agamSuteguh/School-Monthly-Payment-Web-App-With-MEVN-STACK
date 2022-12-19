@@ -11,7 +11,7 @@
             Mau Check Spp?<br class="hidden md:block" />
           </h2>
           <router-link
-            to="/home"
+            to="/checkspp"
             aria-label=""
             class="text-white hover:text-teal-accent-700"
           >
@@ -84,7 +84,7 @@
                     v-model.trim="Admin.password"
                     placeholder="Masukan password anda!"
                     required=""
-                    type="text"
+                    type="password"
                     class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     id="email"
                     name="email"
@@ -104,6 +104,9 @@
         </div>
       </div>
     </div>
+    <hr style="
+  border: 10px solid transparent;
+  border-radius: 100px;">
   </div>
 </template>
 <script setup>

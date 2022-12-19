@@ -1,90 +1,90 @@
 <template>
-  <div
-    class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
-  >
-    <div class="max-w-2xl mx-auto sm:max-w-xl md:max-w-2xl">
-      <div class="text-center">
-        <div
-          class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+  <header class="">
+    <div class="px-4 mx-auto sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <button
+          type="button"
+          class="inline-flex p-1 text-gray-100 transition-all duration-200 border border-gray-100 lg:hidden focus:bg-gray-100 hover:bg-gray-100"
         >
-          <div></div>
-          <h2
-            class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-200 sm:text-4xl md:mx-auto"
-          >
-            <span class="relative inline-block">
-              <svg
-                viewBox="0 0 52 24"
-                fill="currentColor"
-                class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
-              >
-                <defs>
-                  <pattern
-                    id="b039bae0-fdd5-4311-b198-8557b064fce0"
-                    x="0"
-                    y="0"
-                    width=".135"
-                    height=".30"
-                  >
-                    <circle cx="1" cy="1" r=".7"></circle>
-                  </pattern>
-                </defs>
-                <rect
-                  fill="url(#b039bae0-fdd5-4311-b198-8557b064fce0)"
-                  width="52"
-                  height="24"
-                ></rect>
-              </svg>
-              <span class="relative">Membaca</span>
-            </span>
-            Adalah Langkah Awal Menjadi Pintar
-          </h2>
-          <p class="text-base text-gray-500 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque rem aperiam, eaque ipsa quae.
-          </p>
-        </div>
-        <form
-          class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16"
-        >
-          <input
-            placeholder="Email"
-            required=""
-            type="text"
-            class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-          />
-          <button
-            type="submit"
-            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-          >
-            Subscribe
-          </button>
-        </form>
-        <p
-          class="max-w-md mx-auto mb-10 text-xs text-gray-600 sm:text-sm md:mb-16"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium.
-        </p>
-        <a
-          href="/"
-          aria-label="Scroll down"
-          class="flex items-center justify-center w-10 h-10 mx-auto text-gray-600 duration-300 transform border border-gray-400 rounded-full hover:text-deep-purple-accent-400 hover:border-deep-purple-accent-400 hover:shadow hover:scale-110"
-        >
+          <!-- Menu open: "hidden", Menu closed: "block" -->
           <svg
+            class="block w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
             <path
-              d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Menu open: "block", Menu closed: "hidden" -->
+          <svg
+            class="hidden w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
             ></path>
           </svg>
-        </a>
+        </button>
       </div>
     </div>
-  </div>
-</template>
+  </header>
 
-<script setup></script>
+  <section class="">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+        <div>
+          <h1 class="text-4xl font-bold text-gray-100 sm:text-6xl lg:text-7xl">
+            SMK BM3
+            <div class="relative inline-flex">
+              <span
+                class="absolute inset-x-0 bottom-0 border-b-[30px] border-[salmon]"
+              ></span>
+              <h1
+                class="relative text-4xl font-bold text-gray-300 sm:text-6xl lg:text-7xl"
+              >
+                Spp Payment
+              </h1>
+            </div>
+          </h1>
+
+          <p class="mt-8 text-base text-gray-300 sm:text-xl">
+            Anda Juga Bisa Melakukan Pembayaran Spp Secara Langsung Dengan Berkunjung Ke Sekolah Kami Yang Beralamat di
+           <br> Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor
+          </p>
+
+          <div class="mt-10 sm:flex sm:items-center sm:space-x-8">
+            <RouterLink
+              to="/checkspp"
+              title=""
+              class="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-200 bg-orange-500 hover:bg-orange-600 focus:bg-orange-600"
+              role="button"
+            >
+              Check Tagihan Spp Murid
+            </RouterLink>
+          </div>
+        </div>
+
+        <div>
+          <img
+            class="w-full"
+            src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/2/hero-img.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

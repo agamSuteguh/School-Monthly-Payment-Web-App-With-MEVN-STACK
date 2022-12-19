@@ -40,13 +40,13 @@
           </svg>
           <span
             class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase"
-            >Agam Book</span
+            >BM3 Spp</span
           >
         </a>
         <ul class="flex items-center hidden space-x-8 lg:flex">
           <li>
             <router-link
-              to="/register"
+              to="/checkspp"
               aria-label="Sign up"
               title="Sign up"
               class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"

@@ -5,7 +5,7 @@ const adminSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
+
     },
     password: {
       type: String,
@@ -15,6 +15,7 @@ const adminSchema = new Schema(
       type: String,
       required: true
     },
+    kelas:{type:Array},
   
     noTelp: {
       type: Number,

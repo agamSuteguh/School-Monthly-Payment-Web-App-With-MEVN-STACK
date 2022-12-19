@@ -2,6 +2,7 @@
 import { useStore } from "vuex";
 import TheLoading from "./components/TheLoading.vue";
 import TheToast from "./components/TheToast.vue";
+import TheKwitansi from "./components/TheKwitansi.vue";
 import { computed } from "vue";
 
 const store = useStore();
@@ -17,6 +18,7 @@ const toastShow = computed(() => {
 
 <template>
   <div class="parents">
+
     <TheLoading v-show="loading" />
     <TheToast v-show="toastShow" />
     <router-view />
