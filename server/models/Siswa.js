@@ -1,38 +1,54 @@
 const { model, Schema } = require("mongoose");
-const Kelas = require('./Kelas')
+const Kelas = require("./Kelas");
 
 const siswaSchema = new Schema(
   {
     username: {
       type: String,
       required: true,
-      unique: true,
+   
     },
     nis: {
       type: Number,
       required: true,
-      unique:true
-
+   
     },
-    kelas:{
+    kelas: {
       type: String,
-      required: true
-  },
-  jurusan:{
-    type: String,
-    required: true
-},
-    gender:{
-        type: String,
-        required: true
+      required: true,
     },
-    tagihanSpp:{
-      type:Number,
-      default:0,
-    }
-    
+    jurusan: {
+      type: String,
+      required: true,
+    },
+    gender: {
+      type: String,
+      required: true,
+    },
+    tagihanSpp: {
+      type: Number,
+      default: 0,
+    },
+    alamat: {
+      type: String,
+      required: true,
+    },
+    nisn: {
+      type: Number,
+      required: true,
+   
+    },
+    noTelp: {
+      type: Number,
+      required: true,
+   
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = model("Siswa", siswaSchema)
+module.exports = model("Siswa", siswaSchema);

@@ -1,23 +1,22 @@
 <script setup>
-import { onBeforeMount, computed } from "vue";
+import { onBeforeMount, computed,reactive } from "vue";
 import { useStore } from "vuex";
+import Cookies from 'js-cookie';
+
+const account = reactive(JSON.parse(Cookies.get('account')));
 
 const store = useStore();
 
 const transaksi = computed(() => store.state.transaksi.transaksi);
-console.log(transaksi)
-const sumJumlahPembayaran = (arr) => {
-  return arr.reduce((total, item) => total + item.jumlahPembayaran, 0)
-}
 
-let totalJumlahPembayaran = 0;
+
 
 onBeforeMount(() => {
-    store.dispatch("transaksi/fetchTransaksi").then(() => {
-      totalJumlahPembayaran = sumJumlahPembayaran(transaksi.jumlahPembayaran);
-    });
+    store.dispatch("transaksi/fetchTransaksi")
+     
 });
-console.log(totalJumlahPembayaran)
+
+
 </script>
 
 
@@ -33,7 +32,7 @@ console.log(totalJumlahPembayaran)
                     <h2 class="text-2xl font-semibold leading-tight">Data Transaksi</h2>
   
                 </div>
-              
+            
                    
                 <div class="my-2 flex sm:flex-row flex-col">
                     <div class="flex flex-row mb-1 sm:mb-0">
@@ -85,15 +84,15 @@ console.log(totalJumlahPembayaran)
                                         Action Button
                                     </th>
 
-
                             
 
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr v-for="transaksis in transaksi" :key="transaksis._id">
-                                    <td class="px-5 py-5 bg-white text-sm">
+                                <tr v-for="transaksis in transaksi" :key="transaksis._id" >
+                               
+                                    <td v-if="transaksis.siswa === account.username" class="px-5 py-5 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 w-10 h-10">
                                                 <img class="w-full h-full rounded-full"
@@ -107,35 +106,38 @@ console.log(totalJumlahPembayaran)
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="px-5 py-5 bg-white text-sm ">
+                                    <td v-if="transaksis.siswa === account.username" class="px-5 py-5 bg-white text-sm ">
                                         <p class="text-lg text-gray-900 underline decoration-sky-500">{{ transaksis.siswa
                                         }}</p>
 
                                     </td>
-                                    <td class="px-5 py-5 bg-white text-sm">
+                                    <td v-if="transaksis.siswa === account.username" class="px-5 py-5 bg-white text-sm">
                                         <p class="text-lg text-gray-900 underline decoration-sky-500">{{ transaksis.createdAt }} 2023
                                         </p>
                                     </td>
-                                    <td class="px-5 py-5 bg-white text-sm">
+                                    <td v-if="transaksis.siswa === account.username" class="px-5 py-5 bg-white text-sm">
                                         <p class="text-lg text-gray-900 underline decoration-sky-500">{{ transaksis.admin
                                         }}
                                         </p>
                                     </td>
-                                    <td class="px-5 py-5 bg-white text-sm">
+                                    <td v-if="transaksis.siswa === account.username" class="px-5 py-5 bg-white text-sm">
                                         <p class="text-lg text-gray-900 underline decoration-sky-500">RP.{{ transaksis.jumlahPembayaran
                                         }}
                                         </p>
-                                    </td><td class="px-5 py-5 bg-white text-sm">
-                                    <router-link :to="`/siswas/kwitansis/${transaksis._id}`" class="mb-2"><button
+                                    </td>
+                                    <td v-if="transaksis.siswa === account.username" class="px-5 py-5 bg-white text-sm">
+                                      <router-link :to="`/siswas/kwitansis/${transaksis._id}`" class="mb-2"><button
                                                         class="px-5 py-3 rounded-xl text-sm font-medium text-gray-100 bg-pink-800 outline-none border text-gray-300 focus:outline-none bg-gray-100 m-1 hover:m-0 focus:m-0 border text-pink-600 hover: bg-gray-100 border-4 focus:border-4 hover:border-800 hover:text-pink-800 focus:border-pink-200 active:border-pink-900 active:text-grey-900 transition-all">
                                                         <a class="text-gray-100">Kwitansi</a>
                                                         <i
                                                             class="mdi mdi-circle-outline ml-2 text-xl align-middle leading-none"></i>
                                                     </button>
-                                                </router-link></td>
+                                                </router-link>
+                                    </td>
+                                    
                                   
                                   
-                              
+                             
                                 </tr>
                             </tbody>
                         </table>

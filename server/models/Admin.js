@@ -22,6 +22,10 @@ const adminSchema = new Schema(
       required:true
       
     },
+    level: {
+      type: Number,
+      default:0
+    }
  
   },
   { timestamps: true }

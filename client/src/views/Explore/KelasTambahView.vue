@@ -33,7 +33,7 @@
               <h3
                 class="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl bg-white"
               >
-                Tambah Murid
+                Tambah Kelas
               </h3>
               <form @submit="e => addKelas(e)" class="register-box bg-white">
                 <div class="mb-1 sm:mb-2 bg-white">

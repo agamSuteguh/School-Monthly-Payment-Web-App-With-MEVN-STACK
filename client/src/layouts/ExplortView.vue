@@ -21,6 +21,15 @@
           </li>
           <li>
             <router-link
+            :to="{ name: 'SppTambah'}"
+              aria-label="Our product"
+              title="Our product"
+              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+              >Update SPP</router-link
+            >
+          </li>
+          <li>
+            <router-link
             :to="{ name: 'Transaksi'}"
               aria-label="Our product"
               title="Our product"

@@ -56,6 +56,7 @@ const authModule = {
         console.log(error.message);
       }
     },
+    //admin
     async login({ commit }, payload) { 
       commit("setLoading", true, { root: true });
       try {
@@ -80,6 +81,44 @@ const authModule = {
 
           setTimeout(function () {
             window.location.href = "/explore";
+          }, 2000);
+        }
+      } catch (error) {
+        commit(
+          "setToast",
+          { show: "true", type: "error", msg: res.data.msg },
+          { root: true }
+        );
+        commit("setLoading", false, { root: true });
+
+        console.log(error.message);
+      }
+    },
+    //siswa
+    async logins({ commit }, payload) { 
+      commit("setLoading", true, { root: true });
+      try {
+        const res = await api.post("/auth/logins", payload);
+        if (res.data.status === "bad") {
+          commit("setLoading", false, { root: true });
+          commit(
+            "setToast",
+            { show: "true", type: "error", msg: res.data.msg },
+            { root: true }
+          );
+        } else {
+          Cookies.set("account", JSON.stringify(res.data.Siswa));
+          Cookies.set("token", res.data.token);
+         console.log(res.data.Siswa)
+          commit("setLoading", false, { root: true });
+          commit(
+            "setToast",
+            { show: "true", type: "success", msg: res.data.msg },
+            { root: true }
+          );
+
+          setTimeout(function () {
+            window.location.href = "/siswas/indexs";
           }, 2000);
         }
       } catch (error) {

@@ -1,8 +1,11 @@
 
 <script setup>
 import api from "@/helpers/api";
-import { onBeforeMount, computed } from "vue";
+import { onBeforeMount, computed, reactive } from "vue";
 import { useStore } from "vuex";
+import Cookies from 'js-cookie';
+
+const account = reactive(JSON.parse(Cookies.get('account')));
 
 const store = useStore();
 const deleteAccount = async(_id) =>
@@ -49,7 +52,7 @@ onBeforeMount(() => {
 
     <body class="antialiased font-sans text-gray-100 bg-gray-900">
         <div class="container mx-auto  px-4 sm:px-8">
-            <div class="py-8">
+            <div v-if="account.level === 1" class="py-8">
                 <div>
                     <h2 class="text-2xl font-semibold leading-tight">Data Admin</h2>
                     <div class="flex leading-5"><router-link style="display: inline-flex;"  :to="{ name: 'AdminAdd'}">
@@ -165,6 +168,23 @@ onBeforeMount(() => {
                     </div>
                 </div>
             </div>
+            <div v-else class="py-8">
+               
+               <section class="flex items-center h-full p-16 dark:bg-gray-900 dark:text-gray-100">
+       <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+           <div class="max-w-md text-center">
+               <h2 class="mb-8 font-extrabold text-9xl dark:text-gray-600">
+                   <span class="sr-only">Error</span>511
+               </h2>
+               <p class="text-2xl font-semibold md:text-3xl">Maaf, kita tidak bisa menampilkan halaman ini.</p>
+               <p class="mt-4 mb-8 dark:text-gray-400">Hanya admin yang memiliki akses ke halaman berikut</p>
+               
+           </div>
+       </div>
+   </section>
+            
+               <hr style=" border: 95px solid transparent;border-radius: 100px;">
+           </div>
      
         </div>
 

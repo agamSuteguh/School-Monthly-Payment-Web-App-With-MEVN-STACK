@@ -1,58 +1,32 @@
 import api from "@/helpers/api";
 
 
-const transaksiModule = {
+const sppModule = {
   namespaced: true,
   state: () => ({
-    transaksi: [] ? [] : { } ,
+    spp: [] ? [] : { } ,
 
 
 
   }),
   mutations: {
-    SET_TRANSAKSI(state, transaksi) {
-      state.transaksi = transaksi;
+    SET_spp(state, spp) {
+      state.spp = spp;
     },
   
 
   },
   actions: {
     //ambil data dari api
-    async fetchTransaksi({ commit }) {
+    async fetchspp({ commit }) {
       try {
         const res = await api.get(
-          "transaksi/getTransaksi"
+          "spp/getspp"
         );
 
-        const transaksi = res.data.transaksi;
+        const spp = res.data.spp;
 
-        commit("SET_TRANSAKSI", transaksi);
-      } catch (error) {
-        alert(error);
-        console.log(error);
-      }
-    },
-    async fetchTransaksiById({ commit }, payload) {
-      try {
-        const res = await api.get(`transaksi/nis/${payload}`);
-   
-
-        const transaksiOne = res.data.transaksi;
-
-        commit("SET_SISWAO", transaksiOne);
-      } catch (error) {
-        alert(error);
-        console.log(error);
-      }
-    },
-    async fetchSiswaById({ commit }, payload) {
-      try {
-        const res = await api.get(`siswa/nis/${payload}`);
-   
-
-        const siswaOne = res.data.siswa;
-
-        commit("SET_SISWAO", siswaOne);
+        commit("SET_spp", spp);
       } catch (error) {
         alert(error);
         console.log(error);
@@ -60,11 +34,12 @@ const transaksiModule = {
     },
 
 
-    //tambah transaksi
-    async addTransaksi({ commit }, payload) {
+
+    //tambah spp
+    async addspp({ commit }, payload) {
       commit("setLoading", true, { root: true });
       try {
-        const res = await api.post("transaksi/addTransaksi", payload );
+        const res = await api.post("spp/addspp", payload );
 
 
         if (res.data.status === "bad") {
@@ -85,7 +60,7 @@ const transaksiModule = {
             { root: true }
           );
           setTimeout(function () {
-            window.location.href = "/explore/transaksi";
+            window.location.href = "/explore/siswa";
           }, 2000);
         }
       } catch (error) {
@@ -102,4 +77,4 @@ const transaksiModule = {
   },
   modules: {},
 };
-export default transaksiModule;
+export default sppModule;

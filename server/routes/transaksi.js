@@ -3,6 +3,51 @@ const router = Router()
 const Transaksi = require("../models/Transaksi")
 const Siswa = require("../models/Siswa")
 
+router.get('/laporan-total-pembayaran-perbulan', async (req, res) => {
+  try {
+    const laporan = await Transaksi.aggregate([
+      {
+        $group: {
+          _id: { bulan: '$bulan', tahun: '$tahun' },
+          totalPembayaran: { $sum: '$jumlahPembayaran' }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          bulan: '$_id.bulan',
+          tahun: '$_id.tahun',
+          totalPembayaran: 1
+        }
+      }
+    ]);
+    res.json(laporan);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
+//ambil data transaksi tertentu
+router.get("/kwitansi/:id", async (req, res) => {
+  try {
+    const result = await Transaksi.findOne({ _id: req.params.id })
+
+    res.json(result);
+
+    if (!transaksi) {
+      return res.json({ status: "bad", msg: "transaksi tidak ditemukan!" });
+    }
+
+    res.json({
+      status: "ok",
+      msg: "transaksi Ditemukan",
+      transaksi,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+});
 
 
 //ambil data semua transaksi 
@@ -38,8 +83,8 @@ router.get("/:id", async (req, res) => {
 router.post('/addTransaksi', async (req, res) => {
   try {
     // ambil data siswa dan jumlah pembayaran dari request body
-    const { siswa, jumlahPembayaran } = req.body;
-    if (!siswa || !jumlahPembayaran) {
+    const { siswa, jumlahPembayaran, admin} = req.body;
+    if (!siswa || !jumlahPembayaran || !admin) {
       return res.json({
         status: "bad",
         msg: "Isi semua baris",
@@ -54,6 +99,7 @@ router.post('/addTransaksi', async (req, res) => {
     const transaksi = new Transaksi({
       siswa: siswaTerdaftar.username,
       jumlahPembayaran: jumlahPembayaran,
+      admin:admin
     });
 
     // simpan transaksi

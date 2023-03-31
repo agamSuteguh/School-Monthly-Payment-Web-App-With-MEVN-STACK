@@ -1,7 +1,8 @@
 const { Router } = require("express")
 const router = Router()
 const Siswa = require("../models/Siswa")
-const Kelas = require("../models/Kelas");
+const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
 
 
 //ambil data semua siswa 
@@ -69,7 +70,7 @@ router.get("/nis/search/:id", async (req, res) => {
 //Tambah Siswa
 router.post("/addSiswa", async (req, res) => {
   try {
-    const { username, nis, gender, kelas, jurusan } = req.body;
+    const { username, nis, gender, kelas, jurusan, alamat, nisn ,noTelp , password  } = req.body;
     const NisExist = await Siswa.findOne({ nis });
     if (NisExist) {
       res.json({
@@ -77,7 +78,7 @@ router.post("/addSiswa", async (req, res) => {
         msg: "Nis Sudah Dipakai",
       });
     }
-    if (!username || !nis || !gender || !kelas|| !jurusan ) {
+    if (!username || !nis || !gender || !kelas|| !jurusan|| !alamat || !nisn || !noTelp || !password ) {
       res.json({
         status: "bad",
         msg: "Isi semua baris",
@@ -92,23 +93,25 @@ router.post("/addSiswa", async (req, res) => {
     }
    
  
-
+    const hashedPass = await bcrypt.hash(password, 10);
 
     const newSiswa = await new Siswa({
-      username,
-      nis,
-      gender,
-      kelas,
-      jurusan
+      username, nis, gender, kelas, jurusan, alamat, nisn ,noTelp , password: hashedPass, 
     })
 
 
     const savedSiswa = await newSiswa.save();
 
+    const token = await jwt.sign(
+      { Admin: savedSiswa },
+      "tokenkey"
+    );
+
     res.json({
       status: "ok",
       msg: "Siswa Berhasil Ditambahkan!",
-      Siswa:  savedSiswa
+      Siswa:  savedSiswa,
+      token,
 
     });
   } catch (error) {

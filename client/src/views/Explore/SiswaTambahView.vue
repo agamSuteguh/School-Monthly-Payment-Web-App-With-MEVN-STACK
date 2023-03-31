@@ -14,7 +14,11 @@ const siswa = reactive({
   nis: '',
   gender: '',
   jurusan:'',
-  kelas:''
+  kelas:'',
+  alamat:'',
+  nisn:'',
+  noTelp:'', 
+  password:''
 
   
 });
@@ -26,7 +30,7 @@ const loading = computed(() => {
 const addSiswa = async e => {
   e.preventDefault();
 
-  if (!siswa.username || !siswa.nis || !siswa.gender || !siswa.jurusan || !siswa.kelas) {
+  if (!siswa.username || !siswa.nis || !siswa.gender || !siswa.jurusan || !siswa.kelas || !siswa.alamat || !siswa.nisn || !siswa.noTelp|| !siswa.password ) {
     store.commit(
       'setToast',
       { show: true, msg: "isi bris kosong", type: 'error' },
@@ -91,12 +95,61 @@ onBeforeMount(() => {
                   >
                   <input
                     v-model.trim="siswa.username"
-                    placeholder="fullname"
+                    placeholder="username"
                     type="text"
                     class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    id="fullname"
-                    name="fullname"
-                    required=""
+                    id="username"
+                    name="username"
+              
+                  />
+                </div>
+                <div class="mb-1 sm:mb-2 bg-white">
+                  <label
+                    for="name"
+                    class="inline-block mb-1 font-medium bg-white"
+                    >Password Siswa</label
+                  >
+                  <input
+                    v-model.trim="siswa.password"
+                    placeholder="password"
+                    type="password"
+                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    id="alamat"
+                    name="alamat"
+              
+                  />
+                </div>
+                <div class="mb-1 sm:mb-2 bg-white">
+                  <label
+                    for="name"
+                    class="inline-block mb-1 font-medium bg-white"
+                    >Alamat Siswa</label
+                  >
+                  <input
+                    v-model.trim="siswa.alamat"
+                    placeholder="alamat"
+                    type="text"
+                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    id="alamat"
+                    name="alamat"
+              
+                  />
+                </div>
+          
+                <div class="mb-1 sm:mb-2 bg-white">
+                  <label
+                    for="name"
+                    class="inline-block mb-1 font-medium bg-white"
+                    >No Telpon Siswa</label
+                  >
+                  <input
+                    v-model.trim="siswa.noTelp"
+                    placeholder="no Telpon"
+                    type="number"
+           
+                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    id="int"
+                    name="int"
                   />
                 </div>
                 <div class="mb-1 sm:mb-2 bg-white">
@@ -109,7 +162,23 @@ onBeforeMount(() => {
                     v-model.trim="siswa.nis"
                     placeholder="number"
                     type="number"
-                    required=""
+           
+                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    id="int"
+                    name="int"
+                  />
+                </div>
+                <div class="mb-1 sm:mb-2 bg-white">
+                  <label
+                    for="name"
+                    class="inline-block mb-1 font-medium bg-white"
+                    >Nisn</label
+                  >
+                  <input
+                    v-model.trim="siswa.nisn"
+                    placeholder="number"
+                    type="number"
+                 
                     class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     id="int"
                     name="int"

@@ -11,7 +11,7 @@ const store = useStore();
 const route = useRoute();
 
 const siswa = ref({});
-
+console.log(siswa)
 onBeforeMount(async () => {
   const res = await api.get(`siswa/nis/${route.params.id}`);
   siswa.value = res.data;
@@ -59,14 +59,14 @@ const updateSiswa = async () => {
               class="bg-gray-50 border py-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" />
           </div>
           <div class="input-field mt-4 px-2 py-1">
-            <label for="Username">Nis &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
-            <input id="Username" placeholder="Username" v-model="siswa.nis" type="number"
+            <label for="Username">Alamat&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+            <input id="Username" placeholder="alamat" v-model="siswa.alamat" type="text"
               class="bg-gray-50 border border-gray-300 py-1 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" />
           </div>
           <div class="input-field mt-4 px-2 py-1">
-            <label for="Age">gender:&nbsp;&nbsp;&nbsp;:
+            <label for="Number">No Telp:&nbsp;&nbsp;&nbsp;:
             </label>
-            <input id="gender" placeholder="gender" v-model="siswa.gender" type="text"
+            <input id="Number" placeholder="gender" v-model="siswa.noTelp" type="Number"
               class="bg-gray-50 border py-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" />
           </div>
 

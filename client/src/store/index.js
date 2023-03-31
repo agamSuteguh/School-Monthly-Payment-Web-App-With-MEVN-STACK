@@ -4,6 +4,7 @@ import siswaModule from "./modules/siswa";
 import adminModule from "./modules/admin"
 import transaksiModule from "./modules/transaksi";
 import kelasModule from "./modules/kelas"
+import sppModule from "./modules/spp";
 
 export default createStore({
   state: {
@@ -29,6 +30,8 @@ export default createStore({
     siswa: siswaModule,
     admin: adminModule,
     transaksi: transaksiModule,
-    kelas:kelasModule
+    kelas:kelasModule,
+    spp:sppModule
+    
   },
 });

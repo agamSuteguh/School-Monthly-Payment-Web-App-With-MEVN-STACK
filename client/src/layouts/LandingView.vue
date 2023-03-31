@@ -46,11 +46,11 @@
         <ul class="flex items-center hidden space-x-8 lg:flex">
           <li>
             <router-link
-              to="/checkspp"
+              to="/loginSiswa"
               aria-label="Sign up"
               title="Sign up"
               class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >check spp</router-link
+              >login siswa</router-link
             >
           </li>
         </ul>

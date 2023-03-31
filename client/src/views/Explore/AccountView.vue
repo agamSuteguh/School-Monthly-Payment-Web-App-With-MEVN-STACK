@@ -3,11 +3,16 @@ import Cookies from 'js-cookie';
 import { computed, reactive } from 'vue';
 import api from '@/helpers/api';
 import { useStore } from 'vuex';
+
 const store = useStore();
+
 const loading = computed(() => {
   return store.state.loading;
 });
+
 const account = reactive(JSON.parse(Cookies.get('account')));
+
+console.log(account)
 const updateAccount = async () => {
   store.commit('setLoading', true, { root: true });
   try {                                                                                                                                                                                                                                                                                                                                                                                                                                                         
@@ -63,7 +68,7 @@ const deleteAccount = async () => {
 };
 </script>
 <template>
-  <div class="pb-3">
+  <div  class="pb-3">
     <div class="account-page bg-gray-900 pb-12 mb-12">
       <div class="account flex py-12 justify-center items-center">
         <div class="account-img outline outline-offset-1 outline-blue-500 shadow-lg shadow-pink-500/40 w-44">
@@ -72,20 +77,29 @@ const deleteAccount = async () => {
         </div>
         <div class="account-content text-gray-100 ml-4">
           <div class="input-field mt-4 px-2 py-1">
-            <label for="fullname">Fullname &nbsp;: </label>
+            <label for="fullname">Fullname&nbsp; &nbsp;: </label>
             <input id="fullname" placeholder="Fullname" v-model="account.fullname" type="text"
               class="bg-gray-50 border py-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" />
           </div>
           <div class="input-field mt-4 px-2 py-1">
-            <label for="Username">Username : </label>
+            <label for="Username">Username &nbsp;: </label>
             <input id="Username" placeholder="Username" v-model="account.username" type="text"
               class="bg-gray-50 border border-gray-300 py-1 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" />
           </div>
           <div class="input-field mt-4 px-2 py-1">
-            <label for="Age">NoTelp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+            <label for="Age">No Telpon &nbsp;:
             </label>
             <input id="Age" placeholder="Umur" v-model="account.noTelp" type="number"
               class="bg-gray-50 border py-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+          <div v-if="account.level == 0" class="input-field mt-4 px-2 py-1">
+            <label for="Age">Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Petugas 
+            </label>
+          </div>
+          <div v-else class="input-field mt-4 px-2 py-1">
+            <label for="Age">Status &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Admin 
+            </label>
+            
           </div>
 
           <div class="mb-9 px-2 py-1">

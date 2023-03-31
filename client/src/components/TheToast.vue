@@ -25,16 +25,16 @@ const toastOff = computed(() => {
     v-show="toastOff"
     class="toast fixed top-2 mx-2 sm:mx-0 left-0 w-full flex"
   >
-    <div
+  <div
       v-if="toastOptions.type === 'error'"
-      class="flex flex-row items-center rounded shadow-lg overflow-hidden w-full sm:w-11/12 md:max-w-2xl hover:shadow-xl bg-white hover:bg-red-50 dark:bg-gray-800 dark:hover:bg-gray-800 transition-transform hover:scale-95 group"
+      class="flex flex-row items-center rounded shadow-lg overflow-hidden w-full sm:w-11/12 md:max-w-2xl hover:shadow-xl bg-white hover:bg-green-50 dark:bg-gray-800 dark:hover:bg-gray-800 transition-transform hover:scale-95 group"
     >
       <div
-        class="h-full py-8 px-2 bg-red-300 group-hover:bg-red-400 dark:bg-gray-100 dark:group-hover:bg-gray-200"
+        class="h-full py-8 px-2 bg-pink-900	 group-hover:bg-pink-700 dark:bg-gray-100 dark:group-hover:bg-gray-200"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8 text-red-700 group-hover:text-red-800 dark:text-gray-600 dark:group-hover:text-gray-700"
+          class="h-8 w-8 text-pink-700 group-hover:text-pink-800 dark:text-gray-600 dark:group-hover:text-gray-700"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -43,7 +43,7 @@ const toastOff = computed(() => {
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
       </div>
@@ -52,7 +52,7 @@ const toastOff = computed(() => {
           <h1
             class="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-200"
           >
-            Error
+            Sucsess
           </h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"

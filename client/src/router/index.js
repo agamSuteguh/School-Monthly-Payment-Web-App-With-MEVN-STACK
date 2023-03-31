@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Cookies from "js-cookie";
 import LandingLayout from "../layouts/LandingView.vue";
 import ExploreView from "../layouts/ExplortView.vue";
+import SiswaLayout from "../layouts/SiswaView.vue";
 
 import AccountView from "../views/Explore/AccountView.vue";
 import HomeView from "../views/Explore/HomeView.vue";
@@ -19,11 +20,18 @@ import AdminAdd from "../views/Explore/AdminTambahView.vue"
 
 import Transaksi from "../views/Explore/TransaksiView.vue";
 import TransaksiAdd from "../views/Explore/TransaksiTambahView.vue"
+import SppTambah from "../views/Explore/SppTambahView.vue"
 
 
-import CheckSppView from "../views/Landing/CheckSppView.vue";
+
 import LoginView from "../views/Landing/LoginView.vue";
+import LoginSiswaView from "../views/Landing/LoginSiswa.vue";
 import IndexView from "../views/Landing/IndexView.vue";
+
+import AccountsViewS from "../views/Siswa/AccountView.vue"
+import indexs from "../views/Siswa/HomeView.vue";
+import LaporanSiswa from "../views/Siswa/LaporanView.vue";
+import Kwitansis from "../views/Siswa/KwitansiView.vue"
 
 const routes = [
   {
@@ -37,18 +45,19 @@ const routes = [
         component: IndexView,
       },
       {
-        path: "checkspp",
-        name: "Checkspp",
-        component: CheckSppView,
-      },
-      {
         path: "login",
         name: "Login",
         component: LoginView,
       },
+      {
+        path: "loginSiswa",
+        name:"LoginSiswa",
+        component: LoginSiswaView,
+      }
     ],
     beforeEnter: (to, from, next) => {
       if (Cookies.get("token")) {
+       
         window.location.href = "/explore";
       } else {
         next();
@@ -119,11 +128,56 @@ const routes = [
      { path:"kelas",
       name:"KelasView",
     component:KelasView
-  }
+  },
+  { path:"sppTambah",
+  name:"SppTambah",
+component:SppTambah
+},
+
+  
     ],
     beforeEnter: (to, from, next) => {
       if (!Cookies.get("token")) {
         window.location.href = "/login";
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/siswas",
+    name: "SiswaLayout",
+    component: SiswaLayout,
+    children: [
+      {
+        path: 'accountsViewS',
+        name: "AccountsViewS",
+        component: AccountsViewS
+      },
+      {
+        path: 'indexs',
+        name: "Indexs",
+        component: indexs
+      },
+      {
+        path: 'laporanSiswa',
+        name: "LaporanSiswa",
+        component: LaporanSiswa
+      },
+      {
+        path: 'kwitansis/:id',
+        name: "Kwitansis",
+        component: Kwitansis
+      }
+      
+      
+      
+    
+    
+    ],
+    beforeEnter: (to, from, next) => {
+      if (!Cookies.get("token")) {
+        window.location.href = "/loginSiswa";
       } else {
         next();
       }

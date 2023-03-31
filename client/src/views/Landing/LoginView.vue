@@ -8,23 +8,15 @@
           <h2
             class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
           >
-            Mau Check Spp?<br class="hidden md:block" />
+            LOGIN ADMIN<br class="hidden md:block" />
           </h2>
           <router-link
             to="/checkspp"
             aria-label=""
             class="text-white hover:text-teal-accent-700"
           >
-            Ayo Ke sini!
-            <svg
-              class="inline-block w-3 ml-2"
-              fill="currentColor"
-              viewBox="0 0 12 12"
-            >
-              <path
-                d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"
-              ></path>
-            </svg>
+
+          
           </router-link>
         </div>
         <div class="w-full max-w-xl xl:px-8 xl:w-5/12">

@@ -1,12 +1,20 @@
 <template>
-  <div class="overflow-hidden bg-gray-900">
+  <div class="overflow-hidden">
     <div
       class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
-      <div class="flex flex-col items-center justify-center xl:flex-row">
-      
+      <div class="flex flex-col items-center justify-between xl:flex-row">
+        <div class="w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
+          <h2
+            class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
+          >
+            LOGIN SISWA<br class="hidden md:block" />
+          </h2>
+        
+        
+        </div>
         <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
-          <div class="relative">
+          <div class="relative bg-white">
             <svg
               viewBox="0 0 52 24"
               fill="currentColor"
@@ -33,50 +41,47 @@
               <h3
                 class="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl bg-white"
               >
-                Bayar Spp
+                login
               </h3>
-              <form @submit="e => addTransaksi(e)" class="register-box bg-white">
+              <form class="bg-white" @submit="(e) => login(e)">
                 <div class="mb-1 sm:mb-2 bg-white">
                   <label
                     for="name"
                     class="inline-block mb-1 font-medium bg-white"
-                    >Masukan Nis Siswa</label
+                    >Name</label
                   >
                   <input
-                    v-model.trim="transaksi.siswa"
-                    placeholder="nis"
-                    type="number"
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    id="fullname"
-                    name="fullname"
+                    v-model.trim="Siswa.username"
+                    placeholder="Masukan nama anda!"
                     required=""
+                    type="text"
+                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    id="name"
+                    name="name"
                   />
                 </div>
                 <div class="mb-1 sm:mb-2 bg-white">
                   <label
-                    for="name"
+                    for="email"
                     class="inline-block mb-1 font-medium bg-white"
-                    >Masukan Jumlah Pembayaran</label
+                    >password</label
                   >
                   <input
-                    v-model.trim="transaksi.jumlahPembayaran"
-                    placeholder="number"
-                    type="number"
+                    v-model.trim="Siswa.password"
+                    placeholder="Masukan password anda!"
                     required=""
+                    type="password"
                     class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    id="int"
-                    name="int"
+                    id="email"
+                    name="email"
                   />
                 </div>
-           
                 <div class="mt-4 mb-2 sm:mb-4 bg-white">
                   <button
-                    :disabled="loading"
                     type="submit"
-                    button
-                    class="bg-white inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none disabled:bg-black-200 disabled:cursor-default"
+                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none disabled:bg-black-200 disabled:cursor-default"
                   >
-                    Tambah Sekarang!
+                    login Sekarang!
                   </button>
                 </div>
               </form>
@@ -85,40 +90,31 @@
         </div>
       </div>
     </div>
+    <hr style="
+  border: 10px solid transparent;
+  border-radius: 100px;">
   </div>
 </template>
-
 <script setup>
-import Cookies from 'js-cookie';
-import { useStore } from 'vuex';
-import { reactive, computed } from 'vue';
+import { useStore } from "vuex";
+import { reactive, computed } from "vue";
 
 const store = useStore();
 
-const account = reactive(JSON.parse(Cookies.get('account'))); 
-
-const transaksi = reactive({
-  siswa:'',
-  jumlahPembayaran: '',
-  admin:account.username
-
-
+const Siswa = reactive({
+  username: "",
+  password: "",
 });
 
 const loading = computed(() => {
   return store.state.loading;
 });
 
-const addTransaksi = async e => {
+const login = async (e) => {
   e.preventDefault();
-
-  if (!transaksi.siswa || !transaksi.jumlahPembayaran || !account.username ) {
-    
-
+  if (!Siswa.username || !Siswa.password) {
   } else {
-    store.dispatch('transaksi/addTransaksi', transaksi);
-   
+    store.dispatch("auth/logins", Siswa);
   }
 };
-console.log(transaksi)
 </script>
