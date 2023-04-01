@@ -48,6 +48,12 @@ Masuk Ke Folder Server
   npm run dev
 ```
 
+
+
+## Update
+**V.2** -Multi User -Multi Level Admin -Add Bill All Student  
+Spp Student
+
 ## Authors
 
 - [@agamSuteguh](https://www.github.com/agamSuteguh)
