@@ -24,8 +24,8 @@ const toastOff = computed(() => {
   <div v-show="toastOff" class="toast fixed top-2 mx-2 sm:mx-0 left-0 w-full flex">
     <div v-if="toastOptions.type === 'error'"
       class="flex flex-row items-center rounded shadow-lg overflow-hidden w-full sm:w-11/12 md:max-w-2xl hover:shadow-xl bg-white hover:bg-green-50  transition-transform hover:scale-95 group">
-      <div class="h-full py-8 px-2 bg-pink-900	 group-hover:bg-pink-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-700 group-hover:text-pink-800" fill="none"
+      <div class="h-full py-8 px-2 bg-red-900	 group-hover:bg-red-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-700 group-hover:text-red-800" fill="none"
           viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -34,7 +34,7 @@ const toastOff = computed(() => {
       <div class="mx-4 flex-row w-full">
         <div class="flex flex-row items-center justify-between">
           <h1 class="text-lg sm:text-xl font-bold text-gray-800 ">
-            Sucsess
+            Error
           </h1>
           <svg xmlns="http://www.w3.org/2000/svg" @click="toastDisable"
             class="h-4 w-4 cursor-pointer text-gray-500 hover:text-gray-600" viewBox="0 0 20 20" fill="currentColor">
