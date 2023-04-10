@@ -4,7 +4,7 @@
 
 # Web Pembayaran Spp
 
-Project Ini Dibuat Untuk Perlombaan Di Sekolah Saya
+This project was created for a competition at my school.
 
 
 
@@ -17,19 +17,17 @@ Project Ini Dibuat Untuk Perlombaan Di Sekolah Saya
 
 **Client:** Vue Js, TailwindCSS
 
-**Server:** Node, Express
+**Server:** Node , Express
 
 **Database:**Mongo Db
 
 
 ## Installation
--Buka Terminal
+-Open Terminal
 
--Masuk Ke Folder Utama
+-Navigate to the main folder
 
-
-
--jalankan
+-run
 
 ```bash
 -install dependency
@@ -51,7 +49,7 @@ run client and server
 -Multi Level Admin 
 
 
--Add Bill All Spp Student
+-Add All Bill Spp Student
 
 ## Authors
 
