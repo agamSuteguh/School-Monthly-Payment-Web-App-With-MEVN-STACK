@@ -33,8 +33,10 @@ This project was created for a competition at my school.
 -install dependency
   npm run build 
 
-run client and server
+-run client and server at 1 terminal
   npm run start 
+  /
+ -If you want to run them separately
 ```
     
 
