@@ -2,7 +2,7 @@
 # Hi, I'm Agam!👋
 
 
-# Web Pembayaran Spp
+# School Monthly Payment Web App
 
 This project was created for a competition at my school.
 
