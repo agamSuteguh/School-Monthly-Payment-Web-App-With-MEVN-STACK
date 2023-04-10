@@ -23,30 +23,22 @@ Project Ini Dibuat Untuk Perlombaan Di Sekolah Saya
 
 
 ## Installation
-
--Masuk Ke Folder Client
-
 -Buka Terminal
+
+-Masuk Ke Folder Utama
+
+
 
 -jalankan
 
 ```bash
-  npm install 
+-install dependency
+  npm run build 
 
-  npm run serve
+run client and server
+  npm run start 
 ```
     
-Masuk Ke Folder Server
-
--Buka Terminal
-
--jalankan
-
-```bash
-  npm install 
-
-  npm run dev
-```
 
 
 
