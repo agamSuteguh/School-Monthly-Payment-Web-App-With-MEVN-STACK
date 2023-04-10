@@ -65,17 +65,6 @@ client and server at 1 terminal
 
 
 
-## Update
-**V.2** 
-
--Multi User 
-
-
--Multi Level Admin 
-
-
--Add All Bill Spp Student
-
 ## Authors
 
 - [@agamSuteguh](https://www.github.com/agamSuteguh)
