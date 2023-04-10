@@ -51,12 +51,14 @@ client and server at 1 terminal
    ```
    -terminal 1
    
+    npm i
    
   npm client
   
   
    -terminal 2
    
+   npm i
    
   npm server
  
