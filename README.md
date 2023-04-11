@@ -2,9 +2,9 @@
 # Hi, I'm Agam!👋
 
 
-# Web Pembayaran Spp
+# School Monthly Payment Web App
 
-Project Ini Dibuat Untuk Perlombaan Di Sekolah Saya
+This project was created for a competition at my school.
 
 
 
@@ -17,49 +17,55 @@ Project Ini Dibuat Untuk Perlombaan Di Sekolah Saya
 
 **Client:** Vue Js, TailwindCSS
 
-**Server:** Node, Express
+**Server:** Node , Express
 
 **Database:**Mongo Db
 
 
 ## Installation
+client and server at 1 terminal
 
--Masuk Ke Folder Client
+-Open Terminal
 
--Buka Terminal
+-Navigate to the main folder
 
--jalankan
+-run
 
 ```bash
-  npm install 
+-install dependency
+  npm run build 
 
-  npm run serve
+-run client and server at 1 terminal
+  npm run start 
+  ```
+  
+
+ If you want to run them separately
+ 
+ 
+ -Open 2 Terminal
+
+ -Navigate to the main folder
+ 
+ -run
+   ```
+   -terminal 1
+   
+    npm i
+   
+  npm client
+  
+  
+   -terminal 2
+   
+   npm i
+   
+  npm server
+ 
 ```
     
-Masuk Ke Folder Server
-
--Buka Terminal
-
--jalankan
-
-```bash
-  npm install 
-
-  npm run dev
-```
 
 
-
-## Update
-**V.2** 
-
--Multi User 
-
-
--Multi Level Admin 
-
-
--Add Bill All Spp Student
 
 ## Authors
 
