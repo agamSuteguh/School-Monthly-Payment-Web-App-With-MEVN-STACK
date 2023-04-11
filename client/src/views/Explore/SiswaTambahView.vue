@@ -87,6 +87,7 @@ onBeforeMount(() => {
                 Tambah Siswa
               </h3>
               <form @submit="e => addSiswa(e)" class="register-box bg-white">
+                <div class="grid grid-cols-2 gap-9">
                 <div class="mb-1 sm:mb-2 bg-white">
                   <label
                     for="name"
@@ -152,6 +153,7 @@ onBeforeMount(() => {
                     name="int"
                   />
                 </div>
+             
                 <div class="mb-1 sm:mb-2 bg-white">
                   <label
                     for="name"
@@ -190,7 +192,7 @@ onBeforeMount(() => {
                     class="inline-block mb-1 font-medium bg-white"
                     >gender</label
                   ><br> 
-            <select class="bg-gray-500" v-model="siswa.gender">
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="siswa.gender">
               <option :selected="siswa.gender === 'siswa.gender'" value="Cowo">
                Cowo
               </option>
@@ -206,7 +208,7 @@ onBeforeMount(() => {
                     class="inline-block mb-1 font-medium bg-white"
                     >Jurusan</label
                   ><br> 
-            <select class="bg-gray-500" v-model="siswa.jurusan">
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="siswa.jurusan">
               <option v-for="kelas in kelass" :selected="siswa.jurusan === 'kelas.jurusan'" :value="kelas.jurusan">
                 {{kelas.jurusan}}
               </option>
@@ -219,12 +221,12 @@ onBeforeMount(() => {
                     class="inline-block mb-1 font-medium bg-white"
                     >kelas</label
                   ><br> 
-            <select class="bg-gray-500" v-model="siswa.kelas">
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="siswa.kelas">
               <option v-for="kelas in kelass" :selected="siswa.kelas === 'kelas.kelas'" :value="kelas.kelas">
                 {{kelas.kelas}}
               </option>
              
-            </select>
+            </select> </div>
           </div>
       
                 <div class="mt-4 mb-2 sm:mb-4 bg-white">

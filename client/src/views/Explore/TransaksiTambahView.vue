@@ -84,7 +84,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> <hr style=" border: 95px solid transparent;border-radius: 100px;">
   </div>
 </template>
 

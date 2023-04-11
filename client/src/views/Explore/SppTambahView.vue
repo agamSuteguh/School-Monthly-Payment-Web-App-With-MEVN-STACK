@@ -105,7 +105,8 @@
             
                <hr style=" border: 95px solid transparent;border-radius: 100px;">
            </div>
-    </div>
+    
+           <hr style=" border: 95px solid transparent;border-radius: 100px;">      </div>
     </body>
   </template>
   
