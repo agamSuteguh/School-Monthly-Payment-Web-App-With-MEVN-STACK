@@ -87,7 +87,7 @@ onBeforeMount(() => {
                 Tambah Siswa
               </h3>
               <form @submit="e => addSiswa(e)" class="register-box bg-white">
-                <div class="grid grid-cols-2 gap-9">
+                <div class="grid grid-cols-2 gap-4">
                 <div class="mb-1 sm:mb-2 bg-white">
                   <label
                     for="name"
@@ -98,7 +98,7 @@ onBeforeMount(() => {
                     v-model.trim="siswa.username"
                     placeholder="username"
                     type="text"
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="username"
                     name="username"
               
@@ -114,7 +114,7 @@ onBeforeMount(() => {
                     v-model.trim="siswa.password"
                     placeholder="password"
                     type="password"
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="alamat"
                     name="alamat"
               
@@ -130,7 +130,7 @@ onBeforeMount(() => {
                     v-model.trim="siswa.alamat"
                     placeholder="alamat"
                     type="text"
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="alamat"
                     name="alamat"
               
@@ -147,13 +147,11 @@ onBeforeMount(() => {
                     v-model.trim="siswa.noTelp"
                     placeholder="no Telpon"
                     type="number"
-           
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="int"
                     name="int"
                   />
                 </div>
-             
                 <div class="mb-1 sm:mb-2 bg-white">
                   <label
                     for="name"
@@ -164,8 +162,7 @@ onBeforeMount(() => {
                     v-model.trim="siswa.nis"
                     placeholder="number"
                     type="number"
-           
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="int"
                     name="int"
                   />
@@ -180,8 +177,7 @@ onBeforeMount(() => {
                     v-model.trim="siswa.nisn"
                     placeholder="number"
                     type="number"
-                 
-                    class="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="int"
                     name="int"
                   />
@@ -192,7 +188,7 @@ onBeforeMount(() => {
                     class="inline-block mb-1 font-medium bg-white"
                     >gender</label
                   ><br> 
-            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="siswa.gender">
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900    leading-tight focus:outline-none focus:shadow-outline" v-model="siswa.gender">
               <option :selected="siswa.gender === 'siswa.gender'" value="Cowo">
                Cowo
               </option>
@@ -208,7 +204,7 @@ onBeforeMount(() => {
                     class="inline-block mb-1 font-medium bg-white"
                     >Jurusan</label
                   ><br> 
-            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="siswa.jurusan">
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900    leading-tight focus:outline-none focus:shadow-outline" v-model="siswa.jurusan">
               <option v-for="kelas in kelass" :selected="siswa.jurusan === 'kelas.jurusan'" :value="kelas.jurusan">
                 {{kelas.jurusan}}
               </option>
@@ -221,12 +217,12 @@ onBeforeMount(() => {
                     class="inline-block mb-1 font-medium bg-white"
                     >kelas</label
                   ><br> 
-            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="siswa.kelas">
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900    leading-tight focus:outline-none focus:shadow-outline" v-model="siswa.kelas">
               <option v-for="kelas in kelass" :selected="siswa.kelas === 'kelas.kelas'" :value="kelas.kelas">
                 {{kelas.kelas}}
               </option>
              
-            </select> </div>
+            </select></div>
           </div>
       
                 <div class="mt-4 mb-2 sm:mb-4 bg-white">
