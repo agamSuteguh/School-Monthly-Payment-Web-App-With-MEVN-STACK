@@ -1,51 +1,66 @@
-
-<script setup>
-import api from "@/helpers/api";
-import { onBeforeMount, ref } from "vue";
-import { useRoute } from 'vue-router';
-import { useStore } from "vuex";
-
-
-
-const store = useStore();
-const route = useRoute();
-
-const siswa = reactive({
-  nis:''
-
-});
-
-onBeforeMount(async () => {
-  const res = await api.get(`siswa/nis/search`, siswa);
-  siswa.value = res.data;
-});
-
-
-
-
-</script>
-
 <template>
-<!-- component -->
-<div class="bg-slate-700 h-screen px-10 py-20 w-full">
-  <form>
-    <div class="max-w-xl">
-      <div class="flex space-x-1 items-center mb-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="white">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <p class="text-white text-lg font-semibold">Masukan Nis Siswa</p>
-      </div>
-      <div class="flex space-x-4">
-        <div class="flex rounded-md overflow-hidden w-full">
-          <input type="text" class="w-full rounded-md rounded-r-none"  v-model.trim="siswa.nis"/>
-          <button class="bg-yellow-600 text-white px-6 text-lg font-semibold py-4 rounded-r-md">Check</button>
-        </div>
-
-      </div>
-    </div>
-  </form>
-</div>
+  <div>
+    <input type="file" @change="uploadFile">
+  </div>
 </template>
+<script>
+import { useStore } from "vuex";
+import { ref } from 'vue'; // Import the ref function
 
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
 
+export default {
+  setup() {
+    const store = useStore(); // Get the store object
+    const storageRef = ref(null); // Create a ref for storage reference
+
+    // Konfigurasi Firebase
+    const firebaseConfig = {
+  apiKey: "AIzaSyCHNIEAyxiXTHFdenCP35IYLW-uCX3fPUQ",
+  authDomain: "bm3-spp.firebaseapp.com",
+  projectId: "bm3-spp",
+  storageBucket: "bm3-spp.appspot.com",
+  messagingSenderId: "228839284788",
+  appId: "1:228839284788:web:c62991e62f32449c756a61",
+  measurementId: "G-MLXF89ZYF4"
+};
+
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    storageRef.value = firebase.storage().ref(); // Assign the storage reference
+
+    const uploadFile = (event) => {
+      const file = event.target.files[0];
+
+      const fileRef = storageRef.value.child(file.name);
+
+      fileRef.put(file)
+        .then(() => {
+          console.log('File berhasil diupload');
+          fileRef.getDownloadURL()
+            .then((url) => {
+              console.log('URL file:', url);
+              // Do something with the file URL, such as save to database or display in UI
+              store.commit("setLoading", false, { root: true });
+              store.commit(
+                "setToast",
+                { show: "true", type: "success", msg: "Berhasil Upload Filenya!" },
+                { root: true }
+              );
+            })
+            .catch((error) => {
+              console.log('Gagal mendapatkan URL file:', error);
+            });
+        })
+        .catch((error) => {
+          console.log('Gagal mengupload file:', error);
+        });
+    };
+
+    return {
+      uploadFile
+    };
+  }
+}
+</script>

@@ -47,7 +47,7 @@
       <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
         <div>
           <h1 class="text-4xl font-bold text-gray-100 sm:text-6xl lg:text-7xl">
-            Agam
+            SMK BM3
             <div class="relative inline-flex">
               <span
                 class="absolute inset-x-0 bottom-0 border-b-[30px] border-[salmon]"
@@ -55,7 +55,7 @@
               <h1
                 class="relative text-4xl font-bold text-gray-300 sm:text-6xl lg:text-7xl"
               >
-                Book Store.
+                Spp Payment
               </h1>
             </div>
           </h1>
