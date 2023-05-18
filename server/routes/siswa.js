@@ -25,25 +25,7 @@ router.get("/getSiswa", async (req, res) => {
 });
 
 //ambil data siswa tertentu
-router.get("/nis/:id", async (req, res) => {
-  try {
-    const result = await Siswa.findOne({ _id: req.params.id })
 
-    res.json(result);
-
-    if (!siswa) {
-      return res.json({ status: "bad", msg: "Siswa tidak ditemukan!" });
-    }
-
-    res.json({
-      status: "ok",
-      msg: "Siswa Ditemukan",
-      siswa,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-});
 
 router.get("/nis/search/:id", async (req, res) => {
   try {

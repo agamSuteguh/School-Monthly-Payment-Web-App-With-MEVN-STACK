@@ -4,7 +4,7 @@ import api from "@/helpers/api";
 const siswaModule = {
   namespaced: true,
   state: () => ({
-    siswa: [] ? [] : { } ,
+    siswa: null,
     kelas:[]
 
   }),
@@ -14,6 +14,9 @@ const siswaModule = {
     },
     SET_KELAS(state, kelas) {
       state.kelas = kelas;
+    },
+    SET_SISWAO(state, siswa) {
+      state.siswa = siswa;
     },
   
 

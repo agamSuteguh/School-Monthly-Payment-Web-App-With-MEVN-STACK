@@ -1,28 +1,20 @@
 import api from "@/helpers/api";
 
-
-const transaksiModule = {
+const modulTransaksi = {
   namespaced: true,
   state: () => ({
-    transaksi: [] ? [] : { } ,
-
-
-
+    transaksi: [] ? [] : {},
   }),
   mutations: {
     SET_TRANSAKSI(state, transaksi) {
       state.transaksi = transaksi;
     },
-  
-
   },
   actions: {
-    //ambil data dari api
+    // Mengambil data dari API
     async fetchTransaksi({ commit }) {
       try {
-        const res = await api.get(
-          "transaksi/getTransaksi"
-        );
+        const res = await api.get("transaksi/getTransaksi");
 
         const transaksi = res.data.transaksi;
 
@@ -35,11 +27,10 @@ const transaksiModule = {
     async fetchTransaksiById({ commit }, payload) {
       try {
         const res = await api.get(`transaksi/nis/${payload}`);
-   
 
-        const transaksiOne = res.data.transaksi;
+        const transaksiSatu = res.data.transaksi;
 
-        commit("SET_SISWAO", transaksiOne);
+        commit("SET_SISWAO", transaksiSatu);
       } catch (error) {
         alert(error);
         console.log(error);
@@ -48,24 +39,21 @@ const transaksiModule = {
     async fetchSiswaById({ commit }, payload) {
       try {
         const res = await api.get(`siswa/nis/${payload}`);
-   
 
-        const siswaOne = res.data.siswa;
+        const siswaSatu = res.data.siswa;
 
-        commit("SET_SISWAO", siswaOne);
+        commit("SET_SISWAO", siswaSatu);
       } catch (error) {
         alert(error);
         console.log(error);
       }
     },
 
-
-    //tambah transaksi
+    // Menambahkan transaksi
     async addTransaksi({ commit }, payload) {
       commit("setLoading", true, { root: true });
       try {
-        const res = await api.post("transaksi/addTransaksi", payload );
-
+        const res = await api.post("transaksi/addTransaksi", payload);
 
         if (res.data.status === "bad") {
           commit("setLoading", false, { root: true });
@@ -75,9 +63,6 @@ const transaksiModule = {
             { root: true }
           );
         } else {
-        
-
-
           commit("setLoading", false, { root: true });
           commit(
             "setToast",
@@ -85,7 +70,7 @@ const transaksiModule = {
             { root: true }
           );
           setTimeout(function () {
-            window.location.href = "/explore/transaksi";
+            // ...
           }, 2000);
         }
       } catch (error) {
@@ -95,11 +80,9 @@ const transaksiModule = {
           { show: "true", type: "error", msg: error.message },
           { root: true }
         );
- 
       }
     },
-
   },
   modules: {},
 };
-export default transaksiModule;
+export default modulTransaksi;

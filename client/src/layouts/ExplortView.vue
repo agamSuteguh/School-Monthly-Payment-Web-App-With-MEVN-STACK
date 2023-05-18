@@ -50,7 +50,7 @@
         <a
           href="/"
           aria-label="Merk"
-          title="Company"
+          title="BM3"
           class="inline-flex items-center"
         >
           <svg

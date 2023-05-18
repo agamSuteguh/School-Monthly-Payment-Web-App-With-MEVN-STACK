@@ -22,11 +22,10 @@ import Transaksi from "../views/Explore/TransaksiView.vue";
 import TransaksiAdd from "../views/Explore/TransaksiTambahView.vue"
 import SppTambah from "../views/Explore/SppTambahView.vue"
 
-
-
 import LoginView from "../views/Landing/LoginView.vue";
 import LoginSiswaView from "../views/Landing/LoginSiswa.vue";
 import IndexView from "../views/Landing/IndexView.vue";
+import CheckView from "../views/Landing/CheckSppView.vue"
 
 import AccountsViewS from "../views/Siswa/AccountView.vue"
 import indexs from "../views/Siswa/HomeView.vue";
@@ -53,7 +52,11 @@ const routes = [
         path: "loginSiswa",
         name:"LoginSiswa",
         component: LoginSiswaView,
-      }
+      },
+      {
+      path:"checkspp",
+      name:"checkspp",
+      component:CheckView }
     ],
     beforeEnter: (to, from, next) => {
       if (Cookies.get("token")) {

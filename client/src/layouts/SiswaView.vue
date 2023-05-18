@@ -33,7 +33,7 @@
         <router-link
         :to="{ name: 'Indexs'}"
           aria-label="Merk"
-          title="Company"
+          title="BM3"
           class="inline-flex items-center"
         >
           <svg

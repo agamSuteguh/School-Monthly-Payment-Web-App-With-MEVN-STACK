@@ -46,7 +46,7 @@ onBeforeMount(() => {
 
 });
 const account = reactive(JSON.parse(Cookies.get('account')));
-console.log(account)
+
 </script>
 
 
